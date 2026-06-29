@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode } from "swiper/modules";
 import { WEDDING_EVENTS, type WeddingEvent } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
+import { useLanguage } from "@/context/LanguageContext";
 import "swiper/css";
 
 const CATEGORIES = [
@@ -31,6 +32,7 @@ function EventCard({ event, isActive, onClick }: { event: WeddingEvent; isActive
 }
 
 export function EventsTimeline() {
+  const { t } = useLanguage();
   const [filter, setFilter] = useState<string>("pre-wedding");
   const [selected, setSelected] = useState<WeddingEvent>(WEDDING_EVENTS[0]);
 
@@ -40,8 +42,8 @@ export function EventsTimeline() {
     <section id="events" className="py-20 px-4 bg-cream">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
-          title="Wedding Events"
-          subtitle="Celebrate with us through every sacred ceremony"
+          title={t("events.title")}
+          subtitle={t("events.subtitle")}
         />
 
         <div className="flex flex-wrap justify-center gap-2 mb-8 gsap-reveal">
@@ -59,7 +61,7 @@ export function EventsTimeline() {
                   : "bg-blush/30 text-maroon/70 hover:bg-blush/50"
               }`}
             >
-              {cat.label}
+              {cat.key === "pre-wedding" ? t("events.pre") : cat.key === "wedding" ? t("events.wedding") : t("events.post")}
             </button>
           ))}
         </div>

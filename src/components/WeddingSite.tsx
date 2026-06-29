@@ -21,7 +21,6 @@ import { Family } from "@/components/sections/Family";
 import { Venue } from "@/components/sections/Venue";
 import { Wishes } from "@/components/sections/Wishes";
 import { AudioPlayer } from "@/components/ui/AudioPlayer";
-import { LanguageToggle } from "@/components/ui/LanguageToggle";
 
 type Phase = "loading" | "invitation" | "opening" | "site";
 
@@ -74,7 +73,6 @@ export function WeddingSite() {
 
           <Footer />
           <AudioPlayer playOnMount={true} />
-          <LanguageToggle />
 
           <AnimatePresence>
             {showWelcome && (

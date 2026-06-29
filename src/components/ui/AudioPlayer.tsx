@@ -12,38 +12,30 @@ export function AudioPlayer({ playOnMount = false }: { playOnMount?: boolean }) 
     audio.volume = 0.5;
     audioRef.current = audio;
 
-    const playAudio = async () => {
-      try {
-        audio.currentTime = 0; // Start from start
-        await audio.play();
-      } catch (err) {
-        console.warn("Autoplay prevented by browser", err);
-      }
-    };
-
     if (playOnMount) {
-      playAudio();
+      audio.currentTime = 0;
+      audio.play().catch((e) => console.log("Autoplay blocked:", e));
     }
 
-    // Handle visibility change (pause when user leaves tab)
     const handleVisibilityChange = () => {
       if (document.hidden) {
         audio.pause();
       } else {
-        // Resume playing when they come back
-        audio.play().catch(() => {});
+        if (playOnMount) {
+          audio.play().catch((e) => console.log("Autoplay blocked on resume:", e));
+        }
       }
     };
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
     return () => {
-      document.removeEventListener("visibilitychange", handleVisibilityChange);
       audio.pause();
       audio.src = "";
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, [playOnMount]);
 
-  // Return null because user requested to remove the pause/start button
+  // Return nothing as the UI play/pause button has been removed
   return null;
 }

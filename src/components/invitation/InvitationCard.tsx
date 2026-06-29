@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { GaneshSymbol, FloralCorner } from "@/components/ui/Decorations";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { COUPLE, SHLOKA } from "@/data/site";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface InvitationCardProps {
   onOpen: () => void;
@@ -29,6 +30,7 @@ function CandleGlow({ className }: { className?: string }) {
 }
 
 export function InvitationCard({ onOpen }: InvitationCardProps) {
+  const { t } = useLanguage();
   const [sparkles, setSparkles] = useState<SparkleItem[]>([]);
 
   useEffect(() => {
@@ -78,7 +80,7 @@ export function InvitationCard({ onOpen }: InvitationCardProps) {
 
           <div className="text-center relative z-10">
             <p className="font-poppins text-gold-dark text-[10px] md:text-xs tracking-[0.3em] uppercase mb-2 md:mb-4">
-              Wedding Invitation
+              {t("invite.title")}
             </p>
 
             <GaneshSymbol className="w-10 h-10 md:w-14 md:h-14 mx-auto text-gold mb-2 md:mb-3" />
@@ -90,7 +92,7 @@ export function InvitationCard({ onOpen }: InvitationCardProps) {
 
             <div className="h-px w-24 md:w-32 mx-auto bg-gradient-to-r from-transparent via-gold to-transparent mb-4 md:mb-6" />
 
-            <p className="font-poppins text-maroon/60 text-xs md:text-sm mb-1">Together with their families</p>
+            <p className="font-poppins text-maroon/60 text-xs md:text-sm mb-1">{t("invite.together")}</p>
             <h1 className="font-playfair text-2xl md:text-4xl text-maroon-dark mb-1">
               {COUPLE.groom.name}
             </h1>
@@ -99,7 +101,7 @@ export function InvitationCard({ onOpen }: InvitationCardProps) {
               {COUPLE.bride.name}
             </h1>
 
-            <p className="font-poppins text-maroon/70 text-xs md:text-sm mb-1">Request the pleasure of your company</p>
+            <p className="font-poppins text-maroon/70 text-xs md:text-sm mb-1">{t("invite.request")}</p>
             <p className="font-playfair text-base md:text-lg text-gold-dark mb-1">{COUPLE.weddingDate}</p>
             <p className="font-poppins text-maroon/60 text-[10px] md:text-xs mb-6 md:mb-8">{COUPLE.venue.name}</p>
 
@@ -113,7 +115,7 @@ export function InvitationCard({ onOpen }: InvitationCardProps) {
               </span>
             </MagneticButton>
 
-            <p className="font-poppins text-maroon/40 text-[10px] md:text-xs mt-3 md:mt-4">Tap to open invitation</p>
+            <p className="font-poppins text-maroon/40 text-[10px] md:text-xs mt-3 md:mt-4">{t("invite.tap")}</p>
           </div>
 
           <CandleGlow className="absolute bottom-6 left-8" />

@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
+import { useLanguage } from "@/context/LanguageContext";
+import { COUPLE } from "@/data/site";
 
 interface OpenInvitationAnimationProps {
   onComplete: () => void;
@@ -155,6 +157,7 @@ interface ConfettiItem {
 }
 
 export function WelcomePopup({ onClose }: { onClose: () => void }) {
+  const { t } = useLanguage();
   const [confetti, setConfetti] = useState<ConfettiItem[]>([]);
 
   useEffect(() => {
@@ -212,13 +215,13 @@ export function WelcomePopup({ onClose }: { onClose: () => void }) {
           🙏
         </motion.p>
         <h2 id="welcome-title" className="font-playfair text-2xl sm:text-3xl md:text-4xl text-maroon-dark mb-2">
-          Namaste!
+          {t("welcome.title")}
         </h2>
         <p className="font-poppins text-maroon/70 text-sm md:text-base">
-          Welcome to the wedding celebration of
+          {t("welcome.subtitle")}
         </p>
-        <p className="font-playfair text-2xl text-gold-dark mt-2">Samarjeet & Anuradha</p>
-        <p className="font-poppins text-maroon/50 text-xs mt-4">May blessings shower upon you</p>
+        <p className="font-playfair text-2xl text-gold-dark mt-2">{COUPLE.groom.name} & {COUPLE.bride.name}</p>
+        <p className="font-poppins text-maroon/50 text-xs mt-4">{t("welcome.blessings")}</p>
 
         {/* Confetti dots */}
         {confetti.map((c) => (

@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import { useMouseParallax } from "@/hooks/useMouseParallax";
 import { COUPLE } from "@/data/site";
 import { DividerOrnament } from "@/components/ui/Decorations";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
+  const { t } = useLanguage();
   const offset = useMouseParallax(15);
 
   return (
@@ -24,7 +26,7 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
         >
-          We&apos;re Getting Married
+          {t("hero.subtitle")}
         </motion.p>
 
         <motion.h1

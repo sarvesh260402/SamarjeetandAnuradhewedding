@@ -2,12 +2,14 @@
 
 import { GUEST_WISHES } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Wishes() {
+  const { t } = useLanguage();
   return (
     <section id="wishes" className="py-20 px-4 bg-gradient-to-b from-cream to-blush/20">
       <div className="max-w-4xl mx-auto">
-        <SectionHeading title="Guest Wishes" subtitle="Words of love from our dear ones" />
+        <SectionHeading title={t("wishes.title")} subtitle={t("wishes.subtitle")} />
 
         <div className="grid md:grid-cols-2 gap-6">
           {GUEST_WISHES.map((wish, i) => (

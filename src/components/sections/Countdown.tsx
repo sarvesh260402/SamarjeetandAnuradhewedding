@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
 import { COUPLE } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface TimeLeft {
   days: number;
@@ -39,6 +40,7 @@ function Counter({ value, label }: { value: number; label: string }) {
 }
 
 export function Countdown() {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {
@@ -65,17 +67,17 @@ export function Countdown() {
   return (
     <section className="py-20 px-4 bg-gradient-to-b from-cream to-blush/20">
       <div className="max-w-4xl mx-auto">
-        <SectionHeading title="Countdown to Forever" subtitle="Every moment brings us closer to our special day" />
+        <SectionHeading title={t("countdown.title")} subtitle="" />
 
         <div
           className="flex justify-center gap-2 sm:gap-4 md:gap-8 gsap-reveal"
           aria-live="polite"
           aria-label="Wedding countdown timer"
         >
-          <Counter value={timeLeft.days} label="Days" />
-          <Counter value={timeLeft.hours} label="Hours" />
-          <Counter value={timeLeft.minutes} label="Minutes" />
-          <Counter value={timeLeft.seconds} label="Seconds" />
+          <Counter value={timeLeft.days} label={t("countdown.days")} />
+          <Counter value={timeLeft.hours} label={t("countdown.hours")} />
+          <Counter value={timeLeft.minutes} label={t("countdown.minutes")} />
+          <Counter value={timeLeft.seconds} label={t("countdown.seconds")} />
         </div>
       </div>
     </section>

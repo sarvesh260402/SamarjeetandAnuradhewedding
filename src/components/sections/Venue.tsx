@@ -2,12 +2,14 @@
 
 import { COUPLE } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Venue() {
+  const { t } = useLanguage();
   return (
     <section id="venue" className="py-20 px-4 bg-gradient-to-b from-blush/10 to-cream">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading title="Venue" subtitle="Where our forever begins" />
+        <SectionHeading title={t("venue.title")} subtitle={t("venue.subtitle")} />
 
         <div className="gsap-reveal grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
@@ -19,7 +21,7 @@ export function Venue() {
               rel="noopener noreferrer"
               className="inline-block px-6 py-2.5 bg-gradient-to-r from-gold to-gold-dark text-cream font-poppins text-sm rounded-full shadow-md hover:shadow-lg transition-shadow"
             >
-              Get Directions
+              {t("venue.directions")}
             </a>
           </div>
 

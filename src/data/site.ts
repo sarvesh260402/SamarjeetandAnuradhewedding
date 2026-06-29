@@ -165,13 +165,19 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   },
 ];
 
-export const FAMILY_MEMBERS = [
-  { name: "Saheblal Gupta", relation: "Groom's Father", side: "groom" as const },
-  { name: "Befai Devi Gupta", relation: "Groom's Mother", side: "groom" as const },
-  { name: "Santosh Gupta", relation: "Groom's Brother", side: "groom" as const },
-  { name: "Sarvan Gupta", relation: "Groom's Brother", side: "groom" as const },
-  { name: "Sanjeet Gupta", relation: "Groom's Brother", side: "groom" as const },
-  { name: "Sujeet Gupta", relation: "Groom's Brother", side: "groom" as const },
+export interface FamilyMember {
+  name: string;
+  relation: string;
+  side: "groom" | "bride";
+}
+
+export const FAMILY_MEMBERS: FamilyMember[] = [
+  { name: "Saheblal Gupta", relation: "Groom's Father", side: "groom" },
+  { name: "Befai Devi Gupta", relation: "Groom's Mother", side: "groom" },
+  { name: "Santosh Gupta", relation: "Groom's Brother", side: "groom" },
+  { name: "Sarvan Gupta", relation: "Groom's Brother", side: "groom" },
+  { name: "Sanjeet Gupta", relation: "Groom's Brother", side: "groom" },
+  { name: "Sujeet Gupta", relation: "Groom's Brother", side: "groom" },
 ];
 
 export const GALLERY_IMAGES = [

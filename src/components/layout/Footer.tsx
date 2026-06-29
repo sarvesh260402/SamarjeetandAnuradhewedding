@@ -1,7 +1,9 @@
 import { COUPLE } from "@/data/site";
 import { DividerOrnament } from "@/components/ui/Decorations";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
+  const { t } = useLanguage();
   return (
     <footer className="relative bg-gradient-to-b from-maroon-dark to-maroon text-cream py-16 px-4">
       <div className="absolute inset-0 bg-floral-pattern opacity-10" />
@@ -14,7 +16,7 @@ export function Footer() {
         <p className="font-poppins text-cream/60 text-sm mb-6">{COUPLE.weddingDate}</p>
 
         <p className="font-playfair text-gold/80 italic text-sm mb-8">
-          &ldquo;Two souls, one heart, forever bound by love&rdquo;
+          &ldquo;{t("couple.subtitle")}&rdquo;
         </p>
 
         <div className="flex justify-center gap-6 mb-8">
@@ -24,13 +26,13 @@ export function Footer() {
               href={href}
               className="font-poppins text-xs text-cream/50 hover:text-gold-light transition-colors uppercase tracking-wider"
             >
-              {href.replace("#", "")}
+              {t(`nav.${href.replace("#", "")}`)}
             </a>
           ))}
         </div>
 
         <p className="font-poppins text-cream/40 text-xs">
-          © {new Date().getFullYear()} Samarjeet & Anuradha. Made with ♥ by Sarvesh Gupta
+          © {new Date().getFullYear()} {COUPLE.groom.name} & {COUPLE.bride.name}. Made with ♥ by Sarvesh Gupta
         </p>
       </div>
     </footer>

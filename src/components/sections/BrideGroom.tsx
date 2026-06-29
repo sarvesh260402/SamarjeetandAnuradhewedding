@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { COUPLE } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
+import { useLanguage } from "@/context/LanguageContext";
 
 function ProfileCard({
   name,
@@ -40,10 +41,11 @@ function ProfileCard({
 }
 
 export function BrideGroom() {
+  const { t } = useLanguage();
   return (
     <section id="couple" className="py-20 px-4 bg-gradient-to-b from-blush/20 to-cream">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading title="The Happy Couple" subtitle="Two hearts, one beautiful love" />
+        <SectionHeading title={t("couple.title")} subtitle={t("couple.subtitle")} />
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
           <ProfileCard

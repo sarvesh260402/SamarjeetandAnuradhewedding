@@ -3,10 +3,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { NAV_LINKS } from "@/data/site";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -44,11 +46,19 @@ export function Navbar() {
                 onClick={() => handleNav(link.href)}
                 className="font-poppins text-sm text-maroon/70 hover:text-gold-dark transition-colors relative group"
               >
-                {link.label}
+                {t(`nav.${link.href.replace("#", "")}`)}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-300" />
               </button>
             </li>
           ))}
+          <li>
+            <button
+              onClick={() => setLanguage(language === "en" ? "hi" : "en")}
+              className="px-3 py-1 bg-gold/10 text-gold-dark rounded-full font-poppins text-xs font-semibold hover:bg-gold/20 transition-colors"
+            >
+              {language === "en" ? "हिंदी" : "English"}
+            </button>
+          </li>
         </ul>
 
         <button
@@ -82,10 +92,21 @@ export function Navbar() {
                     onClick={() => handleNav(link.href)}
                     className="font-poppins text-sm text-maroon/80 hover:text-gold-dark w-full text-left py-2"
                   >
-                    {link.label}
+                    {t(`nav.${link.href.replace("#", "")}`)}
                   </button>
                 </li>
               ))}
+              <li>
+                <button
+                  onClick={() => {
+                    setLanguage(language === "en" ? "hi" : "en");
+                    setMobileOpen(false);
+                  }}
+                  className="px-4 py-2 mt-2 bg-gold/10 text-gold-dark rounded-full font-poppins text-sm font-semibold hover:bg-gold/20 transition-colors w-full text-left"
+                >
+                  {language === "en" ? "Translate to हिंदी" : "Translate to English"}
+                </button>
+              </li>
             </ul>
           </motion.div>
         )}

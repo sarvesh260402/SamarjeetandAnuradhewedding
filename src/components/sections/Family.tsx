@@ -2,15 +2,17 @@
 
 import { FAMILY_MEMBERS } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Family() {
+  const { t } = useLanguage();
   const groomFamily = FAMILY_MEMBERS.filter((m) => m.side === "groom");
   const brideFamily = FAMILY_MEMBERS.filter((m) => m.side === "bride");
 
   return (
     <section id="family" className="py-20 px-4 bg-cream">
       <div className="max-w-5xl mx-auto">
-        <SectionHeading title="Our Families" subtitle="Blessed by the love of our dear ones" />
+        <SectionHeading title={t("family.title")} subtitle={t("family.subtitle")} />
 
         <div className="grid md:grid-cols-2 gap-12">
           <div className="gsap-reveal">
