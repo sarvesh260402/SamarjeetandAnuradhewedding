@@ -18,7 +18,7 @@ export function Footer() {
         </p>
 
         <div className="flex justify-center gap-6 mb-8">
-          {["#home", "#events", "#rsvp", "#contact"].map((href) => (
+          {["#home", "#events", "#wishes"].map((href) => (
             <a
               key={href}
               href={href}
@@ -30,7 +30,7 @@ export function Footer() {
         </div>
 
         <p className="font-poppins text-cream/40 text-xs">
-          © {new Date().getFullYear()} Samarjeet & Anuradha. Made with ♥
+          © {new Date().getFullYear()} Samarjeet & Anuradha. Made with ♥ by Sarvesh Gupta
         </p>
       </div>
     </footer>

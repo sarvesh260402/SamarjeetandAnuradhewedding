@@ -28,12 +28,12 @@ function Counter({ value, label }: { value: number; label: string }) {
 
   return (
     <div className="flex flex-col items-center">
-      <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-cream to-blush/50 border border-gold/30 flex items-center justify-center shadow-lg">
-        <span ref={ref} className="font-playfair text-3xl md:text-4xl text-maroon-dark">
+      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-cream to-blush/50 border border-gold/30 flex items-center justify-center shadow-lg">
+        <span ref={ref} className="font-playfair text-2xl sm:text-3xl md:text-4xl text-maroon-dark">
           {String(value).padStart(2, "0")}
         </span>
       </div>
-      <span className="font-poppins text-xs text-maroon/60 mt-2 uppercase tracking-wider">{label}</span>
+      <span className="font-poppins text-[10px] sm:text-xs text-maroon/60 mt-2 uppercase tracking-wider">{label}</span>
     </div>
   );
 }
@@ -68,7 +68,7 @@ export function Countdown() {
         <SectionHeading title="Countdown to Forever" subtitle="Every moment brings us closer to our special day" />
 
         <div
-          className="flex justify-center gap-4 md:gap-8 gsap-reveal"
+          className="flex justify-center gap-2 sm:gap-4 md:gap-8 gsap-reveal"
           aria-live="polite"
           aria-label="Wedding countdown timer"
         >

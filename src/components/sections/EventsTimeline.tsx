@@ -82,9 +82,9 @@ export function EventsTimeline() {
           </Swiper>
         </div>
 
-        <div className="gsap-reveal bg-gradient-to-br from-cream via-blush/20 to-cream border border-gold/20 rounded-3xl p-8 md:p-10 shadow-lg">
-          <div className="flex items-start gap-4">
-            <span className="text-5xl">{selected.icon}</span>
+        <div className="gsap-reveal bg-gradient-to-br from-cream via-blush/20 to-cream border border-gold/20 rounded-3xl p-5 sm:p-8 md:p-10 shadow-lg">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
+            <span className="text-5xl flex-shrink-0">{selected.icon}</span>
             <div>
               <h3 className="font-playfair text-2xl md:text-3xl text-maroon-dark">{selected.name}</h3>
               <p className="font-poppins text-gold-dark text-sm mt-1">

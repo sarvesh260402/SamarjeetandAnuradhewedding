@@ -108,7 +108,7 @@ export function OpenInvitationAnimation({ onComplete }: OpenInvitationAnimationP
       className="fixed inset-0 z-[95] flex items-center justify-center bg-maroon-dark/95"
       style={{ perspective: "1200px" }}
     >
-      <div className="relative w-full max-w-lg h-96 flex" style={{ transformStyle: "preserve-3d" }}>
+      <div className="relative w-full max-w-[300px] sm:max-w-md md:max-w-lg h-64 sm:h-80 md:h-96 flex" style={{ transformStyle: "preserve-3d" }}>
         <div
           ref={leftRef}
           className="w-1/2 h-full bg-gradient-to-br from-cream to-blush border-r border-gold/30 rounded-l-2xl shadow-2xl flex items-center justify-center"
@@ -184,7 +184,7 @@ export function WelcomePopup({ onClose }: { onClose: () => void }) {
       aria-labelledby="welcome-title"
     >
       <motion.div
-        className="relative bg-cream/95 backdrop-blur-xl border-2 border-gold/40 rounded-3xl p-10 md:p-14 shadow-2xl text-center max-w-md mx-4 pointer-events-auto"
+        className="relative bg-cream/95 backdrop-blur-xl border-2 border-gold/40 rounded-3xl p-6 sm:p-10 md:p-14 shadow-2xl text-center max-w-md mx-4 pointer-events-auto"
         initial={{ scale: 0.5, opacity: 0, y: 50 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.8, opacity: 0, y: -30 }}
@@ -210,7 +210,7 @@ export function WelcomePopup({ onClose }: { onClose: () => void }) {
         >
           🙏
         </motion.p>
-        <h2 id="welcome-title" className="font-playfair text-3xl md:text-4xl text-maroon-dark mb-2">
+        <h2 id="welcome-title" className="font-playfair text-2xl sm:text-3xl md:text-4xl text-maroon-dark mb-2">
           Namaste!
         </h2>
         <p className="font-poppins text-maroon/70 text-sm md:text-base">

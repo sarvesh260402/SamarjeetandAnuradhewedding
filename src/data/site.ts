@@ -4,7 +4,7 @@ export const COUPLE = {
     fullName: "Samarjeet Kumar",
     parents: "Mr. & Mrs. Rajesh Kumar",
     bio: "A passionate dreamer with a heart full of love. Samarjeet believes that the greatest adventures begin with the person you choose to walk beside.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=800&fit=crop",
+    image: "/groom.jpg",
   },
   bride: {
     name: "Anuradha",
@@ -13,9 +13,9 @@ export const COUPLE = {
     bio: "Graceful, kind, and radiant — Anuradha brings light wherever she goes. Her smile is the melody that Samarjeet's heart dances to.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop",
   },
-  heroImage: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&h=800&fit=crop",
-  weddingDate: "November 28, 2026",
-  weddingDateISO: "2026-11-28T10:00:00",
+  heroImage: "/couple.jpg",
+  weddingDate: "December 5, 2026",
+  weddingDateISO: "2026-12-05T10:00:00",
   venue: {
     name: "The Royal Heritage Banquet",
     address: "123 Wedding Lane, Jaipur, Rajasthan 302001, India",
@@ -80,7 +80,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "ganesh-puja",
     name: "Ganesh Puja",
-    date: "Nov 25, 2026",
+    date: "Dec 2, 2026",
     time: "9:00 AM",
     venue: "Sharma Residence",
     description: "Seeking Lord Ganesha's blessings to remove all obstacles from the wedding celebrations.",
@@ -90,7 +90,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "roka",
     name: "Roka",
-    date: "Nov 25, 2026",
+    date: "Dec 2, 2026",
     time: "11:00 AM",
     venue: "Sharma Residence",
     description: "Formal announcement and blessing of the union by both families.",
@@ -100,7 +100,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "haldi",
     name: "Haldi",
-    date: "Nov 26, 2026",
+    date: "Dec 3, 2026",
     time: "10:00 AM",
     venue: "Kumar Residence",
     description: "Turmeric ceremony for blessings, purification, and glowing skin before the wedding.",
@@ -110,7 +110,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "mehendi",
     name: "Mehendi",
-    date: "Nov 26, 2026",
+    date: "Dec 3, 2026",
     time: "4:00 PM",
     venue: "Royal Heritage Lawn",
     description: "Intricate henna designs adorning the bride's hands with music and celebration.",
@@ -120,7 +120,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "sangeet",
     name: "Sangeet",
-    date: "Nov 27, 2026",
+    date: "Dec 4, 2026",
     time: "7:00 PM",
     venue: "Royal Heritage Ballroom",
     description: "An evening of dance, music, and performances by both families.",
@@ -130,7 +130,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "mata-ki-chowki",
     name: "Mata Ki Chowki",
-    date: "Nov 27, 2026",
+    date: "Dec 4, 2026",
     time: "8:00 PM",
     venue: "Royal Heritage Temple",
     description: "Devotional prayers and bhajans seeking divine blessings for the couple.",
@@ -140,7 +140,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "baraat",
     name: "Baraat",
-    date: "Nov 28, 2026",
+    date: "Dec 5, 2026",
     time: "6:00 PM",
     venue: "Royal Heritage Entrance",
     description: "The groom's grand procession with dhol, band, and dancing family members.",
@@ -150,7 +150,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "milni",
     name: "Milni",
-    date: "Nov 28, 2026",
+    date: "Dec 5, 2026",
     time: "7:00 PM",
     venue: "Royal Heritage Entrance",
     description: "Warm welcome and introduction of both families with garlands and hugs.",
@@ -160,7 +160,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "jaimala",
     name: "Jaimala",
-    date: "Nov 28, 2026",
+    date: "Dec 5, 2026",
     time: "7:30 PM",
     venue: "Royal Heritage Mandap",
     description: "Exchange of floral garlands symbolizing acceptance and love.",
@@ -170,7 +170,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "pheras",
     name: "Pheras",
-    date: "Nov 28, 2026",
+    date: "Dec 5, 2026",
     time: "8:30 PM",
     venue: "Royal Heritage Mandap",
     description: "Seven sacred rounds around the holy fire, binding two souls in matrimony.",
@@ -180,7 +180,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "sindoor",
     name: "Sindoor",
-    date: "Nov 28, 2026",
+    date: "Dec 5, 2026",
     time: "9:30 PM",
     venue: "Royal Heritage Mandap",
     description: "The groom applies sindoor, marking the sacred union of marriage.",
@@ -190,7 +190,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "vidaai",
     name: "Vidaai",
-    date: "Nov 29, 2026",
+    date: "Dec 6, 2026",
     time: "11:00 AM",
     venue: "Royal Heritage",
     description: "Emotional farewell as the bride leaves her parental home for a new beginning.",
@@ -200,7 +200,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
   {
     id: "reception",
     name: "Reception",
-    date: "Nov 29, 2026",
+    date: "Dec 6, 2026",
     time: "7:00 PM",
     venue: "Royal Heritage Grand Hall",
     description: "Grand celebration with dinner, dancing, and blessings from all guests.",
@@ -242,10 +242,7 @@ export const NAV_LINKS = [
   { href: "#story", label: "Our Story" },
   { href: "#couple", label: "Couple" },
   { href: "#events", label: "Events" },
-  { href: "#gallery", label: "Gallery" },
   { href: "#family", label: "Family" },
   { href: "#venue", label: "Venue" },
-  { href: "#rsvp", label: "RSVP" },
   { href: "#wishes", label: "Wishes" },
-  { href: "#contact", label: "Contact" },
 ];

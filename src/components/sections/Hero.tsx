@@ -69,17 +69,6 @@ export function Hero() {
           </div>
           <div className="absolute -inset-4 border border-gold/20 rounded-t-[50%] pointer-events-none" />
         </motion.div>
-
-        <motion.a
-          href="#rsvp"
-          className="inline-block mt-12 px-8 py-3 bg-gradient-to-r from-gold to-gold-dark text-cream font-poppins text-sm tracking-wider uppercase rounded-full shadow-lg hover:shadow-gold/30 transition-shadow"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1 }}
-          whileHover={{ scale: 1.05 }}
-        >
-          RSVP Now
-        </motion.a>
       </div>
     </section>
   );

@@ -18,12 +18,10 @@ import { Countdown } from "@/components/sections/Countdown";
 import { LoveStory } from "@/components/sections/LoveStory";
 import { BrideGroom } from "@/components/sections/BrideGroom";
 import { EventsTimeline } from "@/components/sections/EventsTimeline";
-import { Gallery } from "@/components/sections/Gallery";
 import { Family } from "@/components/sections/Family";
 import { Venue } from "@/components/sections/Venue";
-import { RSVP } from "@/components/sections/RSVP";
 import { Wishes } from "@/components/sections/Wishes";
-import { Contact } from "@/components/sections/Contact";
+import { AudioPlayer } from "@/components/ui/AudioPlayer";
 
 type Phase = "loading" | "invitation" | "opening" | "site";
 
@@ -70,15 +68,13 @@ export function WeddingSite() {
             <LoveStory />
             <BrideGroom />
             <EventsTimeline />
-            <Gallery />
             <Family />
             <Venue />
-            <RSVP />
             <Wishes />
-            <Contact />
           </main>
 
           <Footer />
+          <AudioPlayer playOnMount={true} />
 
           <AnimatePresence>
             {showWelcome && (
