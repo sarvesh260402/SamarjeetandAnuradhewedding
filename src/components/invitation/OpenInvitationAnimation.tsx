@@ -176,7 +176,8 @@ export function WelcomePopup({ onClose }: { onClose: () => void }) {
 
   return (
     <motion.div
-      className="fixed inset-0 z-[80] flex items-center justify-center pointer-events-none overflow-y-auto"
+      className="fixed inset-0 z-[80] flex items-center justify-center pointer-events-none overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+      style={{ padding: '2rem' }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

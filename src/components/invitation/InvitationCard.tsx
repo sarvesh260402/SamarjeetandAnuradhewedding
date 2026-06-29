@@ -64,7 +64,7 @@ export function InvitationCard({ onOpen }: InvitationCardProps) {
       ))}
 
       <motion.div
-        className="relative max-w-md w-full rounded-3xl overflow-hidden max-h-[95vh] overflow-y-auto"
+        className="relative max-w-md w-full rounded-3xl overflow-hidden max-h-[95vh] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         initial={{ scale: 0.8, y: 50, opacity: 0 }}
         animate={{ scale: 1, y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
