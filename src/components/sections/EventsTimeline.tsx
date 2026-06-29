@@ -8,7 +8,6 @@ import { SectionHeading } from "@/components/ui/Decorations";
 import "swiper/css";
 
 const CATEGORIES = [
-  { key: "all", label: "All Events" },
   { key: "pre-wedding", label: "Pre-Wedding" },
   { key: "wedding", label: "Wedding Day" },
   { key: "post-wedding", label: "Post-Wedding" },
@@ -26,17 +25,16 @@ function EventCard({ event, isActive, onClick }: { event: WeddingEvent; isActive
     >
       <span className="text-3xl">{event.icon}</span>
       <h3 className="font-playfair text-lg text-maroon-dark mt-2">{event.name}</h3>
-      <p className="font-poppins text-xs text-gold-dark mt-1">{event.date} · {event.time}</p>
+      <p className="font-poppins text-xs text-gold-dark mt-1">{event.date}</p>
     </button>
   );
 }
 
 export function EventsTimeline() {
-  const [filter, setFilter] = useState<string>("all");
+  const [filter, setFilter] = useState<string>("pre-wedding");
   const [selected, setSelected] = useState<WeddingEvent>(WEDDING_EVENTS[0]);
 
-  const filtered =
-    filter === "all" ? WEDDING_EVENTS : WEDDING_EVENTS.filter((e) => e.category === filter);
+  const filtered = WEDDING_EVENTS.filter((e) => e.category === filter);
 
   return (
     <section id="events" className="py-20 px-4 bg-cream">
@@ -52,9 +50,7 @@ export function EventsTimeline() {
               key={cat.key}
               onClick={() => {
                 setFilter(cat.key);
-                const first = cat.key === "all"
-                  ? WEDDING_EVENTS[0]
-                  : WEDDING_EVENTS.find((e) => e.category === cat.key);
+                const first = WEDDING_EVENTS.find((e) => e.category === cat.key);
                 if (first) setSelected(first);
               }}
               className={`px-4 py-2 rounded-full font-poppins text-xs uppercase tracking-wider transition-all ${
@@ -88,7 +84,7 @@ export function EventsTimeline() {
             <div>
               <h3 className="font-playfair text-2xl md:text-3xl text-maroon-dark">{selected.name}</h3>
               <p className="font-poppins text-gold-dark text-sm mt-1">
-                {selected.date} · {selected.time}
+                {selected.date}
               </p>
               <p className="font-poppins text-maroon/60 text-sm mt-1">📍 {selected.venue}</p>
               <p className="font-poppins text-maroon/70 mt-4 leading-relaxed">{selected.description}</p>

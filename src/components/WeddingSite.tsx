@@ -15,13 +15,13 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Countdown } from "@/components/sections/Countdown";
-import { LoveStory } from "@/components/sections/LoveStory";
 import { BrideGroom } from "@/components/sections/BrideGroom";
 import { EventsTimeline } from "@/components/sections/EventsTimeline";
 import { Family } from "@/components/sections/Family";
 import { Venue } from "@/components/sections/Venue";
 import { Wishes } from "@/components/sections/Wishes";
 import { AudioPlayer } from "@/components/ui/AudioPlayer";
+import { LanguageToggle } from "@/components/ui/LanguageToggle";
 
 type Phase = "loading" | "invitation" | "opening" | "site";
 
@@ -65,7 +65,6 @@ export function WeddingSite() {
           <main>
             <Hero />
             <Countdown />
-            <LoveStory />
             <BrideGroom />
             <EventsTimeline />
             <Family />
@@ -75,6 +74,7 @@ export function WeddingSite() {
 
           <Footer />
           <AudioPlayer playOnMount={true} />
+          <LanguageToggle />
 
           <AnimatePresence>
             {showWelcome && (
