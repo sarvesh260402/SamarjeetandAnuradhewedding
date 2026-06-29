@@ -4,7 +4,7 @@ export const COUPLE = {
     fullName: "Samarjeet Kumar",
     parents: "Mr. & Mrs. Rajesh Kumar",
     bio: "A passionate dreamer with a heart full of love. Samarjeet believes that the greatest adventures begin with the person you choose to walk beside.",
-    image: "/groom.jpg",
+    image: "/samarjeet.jpeg",
   },
   bride: {
     name: "Anuradha",
@@ -13,7 +13,7 @@ export const COUPLE = {
     bio: "Graceful, kind, and radiant — Anuradha brings light wherever she goes. Her smile is the melody that Samarjeet's heart dances to.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=800&fit=crop",
   },
-  heroImage: "/couple.jpg",
+  heroImage: "/Couple.jpeg",
   weddingDate: "December 5, 2026",
   weddingDateISO: "2026-12-05T10:00:00",
   venue: {

@@ -9,7 +9,7 @@ export function AudioPlayer({ playOnMount = false }: { playOnMount?: boolean }) 
 
   useEffect(() => {
     // Create audio element
-    const audio = new Audio("https://upload.wikimedia.org/wikipedia/commons/4/4b/Canon_in_D_Major_-_Johann_Pachelbel.ogg");
+    const audio = new Audio("/wedding_audio.mp3");
     audio.loop = true;
     audio.volume = 0.5;
     audioRef.current = audio;
