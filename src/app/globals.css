@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    overflow-y: auto;
+    height: auto;
+  }
+
+  body {
+    @apply bg-cream text-maroon-dark font-poppins antialiased overflow-x-hidden overflow-y-auto min-h-screen;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-maroon-dark;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
