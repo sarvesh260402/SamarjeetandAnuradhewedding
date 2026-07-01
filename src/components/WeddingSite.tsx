@@ -80,7 +80,9 @@ export function WeddingSite() {
           </AnimatePresence>
         </>
       )}
-      <AudioPlayer playOnMount={true} />
+      {phase !== "loading" && phase !== "invitation" && (
+        <AudioPlayer playOnMount={true} />
+      )}
 
       <style jsx global>{`
         @keyframes ripple {
