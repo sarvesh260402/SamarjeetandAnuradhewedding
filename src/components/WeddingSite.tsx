@@ -72,7 +72,6 @@ export function WeddingSite() {
           </main>
 
           <Footer />
-          <AudioPlayer playOnMount={true} />
 
           <AnimatePresence>
             {showWelcome && (
@@ -81,6 +80,7 @@ export function WeddingSite() {
           </AnimatePresence>
         </>
       )}
+      <AudioPlayer playOnMount={true} />
 
       <style jsx global>{`
         @keyframes ripple {

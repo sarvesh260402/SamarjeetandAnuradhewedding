@@ -7,14 +7,18 @@ export function AudioPlayer({ playOnMount = false }: { playOnMount?: boolean }) 
 
   useEffect(() => {
     // Create audio element
-    const audio = new Audio("/wedding_audio.mp3");
+    const audio = new Audio("/audio2.mp3");
     audio.loop = true;
     audio.volume = 0.5;
+    audio.currentTime = 0;
     audioRef.current = audio;
 
-    if (playOnMount) {
-      audio.currentTime = 0;
+    const tryPlay = () => {
       audio.play().catch((e) => console.log("Autoplay blocked:", e));
+    };
+
+    if (playOnMount) {
+      tryPlay();
     }
 
     const handleVisibilityChange = () => {
@@ -22,10 +26,19 @@ export function AudioPlayer({ playOnMount = false }: { playOnMount?: boolean }) 
         audio.pause();
       } else {
         if (playOnMount) {
-          audio.play().catch((e) => console.log("Autoplay blocked on resume:", e));
+          tryPlay();
         }
       }
     };
+
+    const handleFirstInteraction = () => {
+      if (audio.paused) {
+        tryPlay();
+      }
+    };
+
+    window.addEventListener("pointerdown", handleFirstInteraction, { once: true });
+    window.addEventListener("keydown", handleFirstInteraction, { once: true });
 
     document.addEventListener("visibilitychange", handleVisibilityChange);
 
@@ -33,6 +46,8 @@ export function AudioPlayer({ playOnMount = false }: { playOnMount?: boolean }) 
       audio.pause();
       audio.src = "";
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("pointerdown", handleFirstInteraction);
+      window.removeEventListener("keydown", handleFirstInteraction);
     };
   }, [playOnMount]);
 
