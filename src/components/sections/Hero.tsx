@@ -3,12 +3,12 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useMouseParallax } from "@/hooks/useMouseParallax";
-import { COUPLE } from "@/data/site";
 import { DividerOrnament } from "@/components/ui/Decorations";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
-  const { t, language, setLanguage } = useLanguage();
+  const { t, language, setLanguage, siteData } = useLanguage();
+  const { COUPLE } = siteData;
   const offset = useMouseParallax(15);
 
   return (

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { useLanguage } from "@/context/LanguageContext";
-import { COUPLE } from "@/data/site";
+
 
 interface OpenInvitationAnimationProps {
   onComplete: () => void;
@@ -157,7 +157,8 @@ interface ConfettiItem {
 }
 
 export function WelcomePopup({ onClose }: { onClose: () => void }) {
-  const { t } = useLanguage();
+  const { t, siteData } = useLanguage();
+  const { COUPLE } = siteData;
   const [confetti, setConfetti] = useState<ConfettiItem[]>([]);
 
   useEffect(() => {

@@ -1,6 +1,8 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode } from "react";
+import * as siteEN from "@/data/site";
+import * as siteHI from "@/data/site_hi";
 
 type Language = "en" | "hi";
 
@@ -8,6 +10,7 @@ interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
+  siteData: typeof siteEN;
 }
 
 const translations: Record<Language, Record<string, string>> = {
@@ -108,8 +111,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return translations[language][key] || key;
   };
 
+  const siteData = language === "en" ? siteEN : (siteHI as typeof siteEN);
+
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language, setLanguage, t, siteData }}>
       {children}
     </LanguageContext.Provider>
   );

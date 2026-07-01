@@ -1,11 +1,11 @@
 "use client";
 
-import { FAMILY_MEMBERS } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Family() {
-  const { t } = useLanguage();
+  const { t, siteData, language } = useLanguage();
+  const { FAMILY_MEMBERS } = siteData;
   const groomFamily = FAMILY_MEMBERS.filter((m) => m.side === "groom");
   const brideFamily = FAMILY_MEMBERS.filter((m) => m.side === "bride");
 
@@ -17,7 +17,7 @@ export function Family() {
         <div className="grid md:grid-cols-2 gap-12">
           <div className="gsap-reveal">
             <h3 className="font-playfair text-xl text-gold-dark text-center mb-6">
-              {FAMILY_MEMBERS[0] ? "Groom's Family" : ""}
+              {FAMILY_MEMBERS.some(m => m.side === "groom") ? (language === "en" ? "Groom's Family" : "दूल्हे का परिवार") : ""}
             </h3>
             <div className="space-y-4">
               {groomFamily.map((member) => (
@@ -38,7 +38,9 @@ export function Family() {
           </div>
 
           <div className="gsap-reveal">
-            <h3 className="font-playfair text-xl text-gold-dark text-center mb-6">Bride&apos;s Family</h3>
+            <h3 className="font-playfair text-xl text-gold-dark text-center mb-6">
+              {language === "en" ? "Bride's Family" : "दुल्हन का परिवार"}
+            </h3>
             <div className="space-y-4">
               {brideFamily.map((member) => (
                 <div

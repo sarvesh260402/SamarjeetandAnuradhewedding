@@ -1,9 +1,9 @@
-import { COUPLE } from "@/data/site";
 import { DividerOrnament } from "@/components/ui/Decorations";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Footer() {
-  const { t } = useLanguage();
+  const { t, siteData } = useLanguage();
+  const { COUPLE } = siteData;
   return (
     <footer className="relative bg-gradient-to-b from-maroon-dark to-maroon text-cream py-16 px-4">
       <div className="absolute inset-0 bg-floral-pattern opacity-10" />

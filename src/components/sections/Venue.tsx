@@ -1,11 +1,11 @@
 "use client";
 
-import { COUPLE } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Venue() {
-  const { t } = useLanguage();
+  const { t, siteData } = useLanguage();
+  const { COUPLE } = siteData;
   return (
     <section id="venue" className="py-20 px-4 bg-gradient-to-b from-blush/10 to-cream">
       <div className="max-w-5xl mx-auto">

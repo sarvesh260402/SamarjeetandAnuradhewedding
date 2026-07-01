@@ -1,11 +1,11 @@
 "use client";
 
-import { GUEST_WISHES } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Wishes() {
-  const { t } = useLanguage();
+  const { t, siteData } = useLanguage();
+  const { GUEST_WISHES } = siteData;
   return (
     <section id="wishes" className="py-20 px-4 bg-gradient-to-b from-cream to-blush/20">
       <div className="max-w-4xl mx-auto">

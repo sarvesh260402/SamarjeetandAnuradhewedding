@@ -2,13 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { NAV_LINKS } from "@/data/site";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage, t, siteData } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -32,15 +31,24 @@ export function Navbar() {
       aria-label="Main navigation"
     >
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
-        <button
-          onClick={() => handleNav("#home")}
-          className="font-playfair text-xl md:text-2xl text-maroon-dark hover:text-gold transition-colors"
-        >
-          S <span className="text-blush-deep">♥</span> A
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => handleNav("#home")}
+            className="font-playfair text-xl md:text-2xl text-maroon-dark hover:text-gold transition-colors"
+          >
+            S <span className="text-blush-deep">♥</span> A
+          </button>
+          
+          <button
+            onClick={() => setLanguage(language === "en" ? "hi" : "en")}
+            className="px-3 py-1 bg-gold/10 text-gold-dark rounded-full font-poppins text-xs font-semibold hover:bg-gold/20 transition-colors hidden md:block"
+          >
+            {language === "en" ? "हिंदी" : "English"}
+          </button>
+        </div>
 
         <ul className="hidden lg:flex items-center gap-6">
-          {NAV_LINKS.map((link) => (
+          {siteData.NAV_LINKS.map((link) => (
             <li key={link.href}>
               <button
                 onClick={() => handleNav(link.href)}
@@ -51,14 +59,6 @@ export function Navbar() {
               </button>
             </li>
           ))}
-          <li>
-            <button
-              onClick={() => setLanguage(language === "en" ? "hi" : "en")}
-              className="px-3 py-1 bg-gold/10 text-gold-dark rounded-full font-poppins text-xs font-semibold hover:bg-gold/20 transition-colors"
-            >
-              {language === "en" ? "हिंदी" : "English"}
-            </button>
-          </li>
         </ul>
 
         <button
@@ -86,7 +86,7 @@ export function Navbar() {
             className="lg:hidden bg-cream/95 backdrop-blur-xl border-t border-gold/20 overflow-hidden"
           >
             <ul className="px-4 py-4 space-y-3">
-              {NAV_LINKS.map((link) => (
+              {siteData.NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <button
                     onClick={() => handleNav(link.href)}

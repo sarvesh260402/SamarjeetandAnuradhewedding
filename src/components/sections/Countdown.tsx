@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 import { gsap } from "gsap";
-import { COUPLE } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -40,7 +39,8 @@ function Counter({ value, label }: { value: number; label: string }) {
 }
 
 export function Countdown() {
-  const { t } = useLanguage();
+  const { t, siteData } = useLanguage();
+  const { COUPLE } = siteData;
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
 
   useEffect(() => {

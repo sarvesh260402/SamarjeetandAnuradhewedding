@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GaneshSymbol, FloralCorner } from "@/components/ui/Decorations";
 import { MagneticButton } from "@/components/ui/MagneticButton";
-import { COUPLE, SHLOKA } from "@/data/site";
+
 import { useLanguage } from "@/context/LanguageContext";
 
 interface InvitationCardProps {
@@ -30,7 +30,8 @@ function CandleGlow({ className }: { className?: string }) {
 }
 
 export function InvitationCard({ onOpen }: InvitationCardProps) {
-  const { t } = useLanguage();
+  const { t, siteData } = useLanguage();
+  const { COUPLE, SHLOKA } = siteData;
   const [sparkles, setSparkles] = useState<SparkleItem[]>([]);
 
   useEffect(() => {
