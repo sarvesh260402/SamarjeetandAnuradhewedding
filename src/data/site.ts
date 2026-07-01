@@ -55,15 +55,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
     icon: "🙏",
     category: "pre-wedding",
   },
-  {
-    id: "roka",
-    name: "Roka",
-    date: "Dec 2, 2026",
-    venue: "Sharma Residence",
-    description: "Formal announcement and blessing of the union by both families.",
-    icon: "💍",
-    category: "pre-wedding",
-  },
+
   {
     id: "haldi",
     name: "Haldi",
@@ -82,24 +74,7 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
     icon: "🎨",
     category: "pre-wedding",
   },
-  {
-    id: "sangeet",
-    name: "Sangeet",
-    date: "Dec 4, 2026",
-    venue: "Royal Heritage Ballroom",
-    description: "An evening of dance, music, and performances by both families.",
-    icon: "🎵",
-    category: "pre-wedding",
-  },
-  {
-    id: "mata-ki-chowki",
-    name: "Mata Ki Chowki",
-    date: "Dec 4, 2026",
-    venue: "Royal Heritage Temple",
-    description: "Devotional prayers and bhajans seeking divine blessings for the couple.",
-    icon: "🪔",
-    category: "pre-wedding",
-  },
+
   {
     id: "baraat",
     name: "Baraat",
@@ -125,6 +100,15 @@ export const WEDDING_EVENTS: WeddingEvent[] = [
     venue: "Royal Heritage Mandap",
     description: "Exchange of floral garlands symbolizing acceptance and love.",
     icon: "💐",
+    category: "wedding",
+  },
+  {
+    id: "engagement",
+    name: "Engagement",
+    date: "Dec 5, 2026",
+    venue: "Royal Heritage Mandap",
+    description: "Formal ring exchange ceremony celebrating the union.",
+    icon: "💍",
     category: "wedding",
   },
   {

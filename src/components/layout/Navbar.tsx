@@ -41,7 +41,7 @@ export function Navbar() {
           
           <button
             onClick={() => setLanguage(language === "en" ? "hi" : "en")}
-            className="px-3 py-1 bg-gold/10 text-gold-dark rounded-full font-poppins text-xs font-semibold hover:bg-gold/20 transition-colors hidden md:block"
+            className="px-3 py-1 bg-gold/10 text-gold-dark rounded-full font-poppins text-xs font-semibold hover:bg-gold/20 transition-colors"
           >
             {language === "en" ? "हिंदी" : "English"}
           </button>
