@@ -8,7 +8,7 @@ import { DividerOrnament } from "@/components/ui/Decorations";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, language, setLanguage } = useLanguage();
   const offset = useMouseParallax(15);
 
   return (
@@ -42,13 +42,24 @@ export function Hero() {
         <DividerOrnament className="mb-8" />
 
         <motion.p
-          className="font-playfair text-xl md:text-2xl text-maroon/70 mb-12"
+          className="font-playfair text-xl md:text-2xl text-maroon/70 mb-4"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
         >
           {COUPLE.weddingDate}
         </motion.p>
+
+        <motion.button
+          type="button"
+          onClick={() => setLanguage(language === "en" ? "hi" : "en")}
+          className="inline-flex items-center justify-center px-6 py-3 mb-10 rounded-full border border-gold bg-gold/10 text-gold-dark font-poppins text-sm uppercase tracking-[0.15em] hover:bg-gold/20 transition-colors"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+        >
+          {language === "en" ? t("hero.buttonHindi") : t("hero.buttonEnglish")}
+        </motion.button>
 
         <motion.div
           className="relative mx-auto w-72 md:w-96 lg:w-[28rem]"

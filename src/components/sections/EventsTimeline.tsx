@@ -1,12 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode } from "swiper/modules";
-import { WEDDING_EVENTS, type WeddingEvent } from "@/data/site";
+import { WEDDING_EVENTS } from "@/data/site";
 import { SectionHeading } from "@/components/ui/Decorations";
 import { useLanguage } from "@/context/LanguageContext";
-import "swiper/css";
 
 const CATEGORIES = [
   { key: "pre-wedding", label: "Pre-Wedding" },
@@ -14,27 +11,9 @@ const CATEGORIES = [
   { key: "post-wedding", label: "Post-Wedding" },
 ] as const;
 
-function EventCard({ event, isActive, onClick }: { event: WeddingEvent; isActive: boolean; onClick: () => void }) {
-  return (
-    <button
-      onClick={onClick}
-      className={`flex-shrink-0 w-64 p-5 rounded-2xl border transition-all duration-300 text-left ${
-        isActive
-          ? "bg-gradient-to-br from-gold/20 to-blush/30 border-gold shadow-lg scale-105"
-          : "bg-cream border-gold/20 hover:border-gold/40 hover:shadow-md"
-      }`}
-    >
-      <span className="text-3xl">{event.icon}</span>
-      <h3 className="font-playfair text-lg text-maroon-dark mt-2">{event.name}</h3>
-      <p className="font-poppins text-xs text-gold-dark mt-1">{event.date}</p>
-    </button>
-  );
-}
-
 export function EventsTimeline() {
   const { t } = useLanguage();
   const [filter, setFilter] = useState<string>("pre-wedding");
-  const [selected, setSelected] = useState<WeddingEvent>(WEDDING_EVENTS[0]);
 
   const filtered = WEDDING_EVENTS.filter((e) => e.category === filter);
 
@@ -50,11 +29,7 @@ export function EventsTimeline() {
           {CATEGORIES.map((cat) => (
             <button
               key={cat.key}
-              onClick={() => {
-                setFilter(cat.key);
-                const first = WEDDING_EVENTS.find((e) => e.category === cat.key);
-                if (first) setSelected(first);
-              }}
+              onClick={() => setFilter(cat.key)}
               className={`px-4 py-2 rounded-full font-poppins text-xs uppercase tracking-wider transition-all ${
                 filter === cat.key
                   ? "bg-gold text-cream shadow-md"
@@ -66,32 +41,23 @@ export function EventsTimeline() {
           ))}
         </div>
 
-        <div className="gsap-reveal mb-8">
-          <Swiper modules={[FreeMode]} freeMode slidesPerView="auto" spaceBetween={16} className="!px-2">
-            {filtered.map((event) => (
-              <SwiperSlide key={event.id} className="!w-auto">
-                <EventCard
-                  event={event}
-                  isActive={selected.id === event.id}
-                  onClick={() => setSelected(event)}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-
-        <div className="gsap-reveal bg-gradient-to-br from-cream via-blush/20 to-cream border border-gold/20 rounded-3xl p-5 sm:p-8 md:p-10 shadow-lg">
-          <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4">
-            <span className="text-5xl flex-shrink-0">{selected.icon}</span>
-            <div>
-              <h3 className="font-playfair text-2xl md:text-3xl text-maroon-dark">{selected.name}</h3>
-              <p className="font-poppins text-gold-dark text-sm mt-1">
-                {selected.date}
-              </p>
-              <p className="font-poppins text-maroon/60 text-sm mt-1">📍 {selected.venue}</p>
-              <p className="font-poppins text-maroon/70 mt-4 leading-relaxed">{selected.description}</p>
+        <div className="gsap-reveal space-y-4">
+          {filtered.map((event) => (
+            <div key={event.id} className="flex gap-4 rounded-3xl border border-gold/20 bg-cream p-5 shadow-sm">
+              <div className="flex items-start">
+                <div className="mt-1 h-3 w-3 rounded-full bg-gold shadow-sm" />
+              </div>
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-2xl">{event.icon}</span>
+                  <h3 className="font-playfair text-lg text-maroon-dark">{event.name}</h3>
+                </div>
+                <p className="font-poppins text-sm text-gold-dark mt-1">{event.date}</p>
+                <p className="font-poppins text-maroon/60 text-sm mt-1">📍 {event.venue}</p>
+                <p className="font-poppins text-maroon/70 mt-3 leading-relaxed">{event.description}</p>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

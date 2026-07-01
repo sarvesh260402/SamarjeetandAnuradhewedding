@@ -71,6 +71,15 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
           </motion.h1>
 
           <motion.p
+            className="font-poppins text-gold/80 text-lg md:text-xl text-center mt-2"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65 }}
+          >
+            Wedding Invitation
+          </motion.p>
+
+          <motion.p
             className="font-poppins text-cream/70 text-sm mt-3 text-center max-w-md px-4 italic"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

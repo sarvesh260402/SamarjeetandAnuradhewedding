@@ -173,7 +173,7 @@ export function WelcomePopup({ onClose }: { onClose: () => void }) {
   }, []);
 
   useEffect(() => {
-    const timer = setTimeout(onClose, 3000);
+    const timer = setTimeout(onClose, 2000);
     return () => clearTimeout(timer);
   }, [onClose]);
 
